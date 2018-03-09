@@ -1,3 +1,4 @@
+# 简单翻译一下，方便阅读
 # Sortable
 Sortable is a <s>minimalist</s> JavaScript library for reorderable drag-and-drop lists.
 
