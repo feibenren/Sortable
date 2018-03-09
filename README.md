@@ -1,6 +1,8 @@
 # Sortable
 Sortable is a <s>minimalist</s> JavaScript library for reorderable drag-and-drop lists.
 
+Sortable 库是一个可以拖拽一个列表的插件库
+
 Demo: http://rubaxa.github.io/Sortable/
 
 
@@ -80,19 +82,37 @@ You can use any element for the list and its elements, not just `ul`/`li`. Here 
 ```js
 var sortable = new Sortable(el, {
 	group: "name",  // or { name: "...", pull: [true, false, clone], put: [true, false, array] }
+	//group:主要用在系那个一个容器中的内容拖拽到另外一个容器中配置的，想要实现这个效果，两个容器的group.name必须一样
+	//比如从a拖拽到b
+	group:{
+		name:'a',//容器名字
+		pull:true,//允许a里面的内容拖拽到其他容器中
+		pull:false,//不允许
+		pull:'clone',//从a拖拽出去的内容，是克隆的,默认是剪切的
+		put:true,//b允许从其他容器中托过来的内容放到b中
+		put:false,//不允许
+		put:['g1','g2'],//b只允许g1,g2两个容器来的东西
+	}
 	sort: true,  // sorting inside list
+	sort: true,  // 允许列表内容部排序，如果设置为false，那么列表内容部都不允许拖拽了(因为排序一定要排序)
 	delay: 0, // time in milliseconds to define when the sorting should start
+	delay: 0, // 拖拽延迟时间，最好是500比较合适
 	touchStartThreshold: 0, // px, how many pixels the point should move before cancelling a delayed drag event
 	disabled: false, // Disables the sortable if set to true.
+	disabled: false, // 是否禁用拖拽
 	store: null,  // @see Store
 	animation: 150,  // ms, animation speed moving items when sorting, `0` — without animation
+	animation: 150,  // 动画时长
 	handle: ".my-handle",  // Drag handle selector within list items
 	filter: ".ignore-elements",  // Selectors that do not lead to dragging (String or Function)
 	preventOnFilter: true, // Call `event.preventDefault()` when triggered `filter`
 	draggable: ".item",  // Specifies which items inside the element should be draggable
 	ghostClass: "sortable-ghost",  // Class name for the drop placeholder
+	ghostClass: "sortable-ghost",  // 不知道....
 	chosenClass: "sortable-chosen",  // Class name for the chosen item
+	chosenClass: "sortable-chosen",  //被选中的元素的会自动添加该类名，方便样式自定义
 	dragClass: "sortable-drag",  // Class name for the dragging item
+	dragClass: "sortable-drag",  // 被做拽中的元素的样式
 	dataIdAttr: 'data-id',
 
 	forceFallback: false,  // ignore the HTML5 DnD behaviour and force the fallback to kick in
