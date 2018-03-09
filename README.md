@@ -273,6 +273,8 @@ To make list items draggable, Sortable disables text selection by the user.
 That's not always desirable. To allow text selection, define a drag handler,
 which is an area of every list element that allows it to be dragged around.
 
+为了让列表中的文字元素可以拖拽，需要设定一个把手，因为文字是不好拖拽的，看下面的列子
+
 Demo: http://jsbin.com/newize/edit?html,js,output
 
 ```js
@@ -301,6 +303,7 @@ Sortable.create(el, {
 
 #### `filter` option
 
+过滤器
 
 ```js
 Sortable.create(list, {
@@ -326,6 +329,13 @@ Sortable.create(list, {
 #### `ghostClass` option
 Class name for the drop placeholder (default `sortable-ghost`).
 
+放下的占位符的类名，什么意思
+拖拽的时候会产生一个两个东西，一个是系统自动产生的，类似于被拖拽元素的虚影，漂浮于页面上，看不清
+还有一个东西那就是，一直不会脱离页面，是被拖拽的元素，这个元素就是ghost，如果鼠标松开，那么这个ghostClass就会移除，
+说白了，就是拖拽元素在拖拽过程中添加的类名
+
+
+
 Demo: http://jsbin.com/hunifu/4/edit?css,js,output
 
 ```css
@@ -346,6 +356,12 @@ Sortable.create(list, {
 
 #### `chosenClass` option
 Class name for the chosen item  (default `sortable-chosen`).
+
+被选中的元素添加的类名
+这个和ghostClass相似，差别在于
+closeClass:选中+拖拽
+ghostClass:拖拽
+
 
 Demo: http://jsbin.com/hunifu/3/edit?html,css,js,output
 
@@ -394,7 +410,7 @@ Dragging only starts if you move the pointer past a certain tolerance, so that y
 
 #### `scroll` option
 If set to `true`, the page (or sortable-area) scrolls when coming to an edge.
-
+//。。。
 Demo:
  - `window`: http://jsbin.com/tutuzeh/edit?html,js,output
  - `overflow: hidden`: http://jsbin.com/kolisu/edit?html,js,output
